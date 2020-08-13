@@ -8,19 +8,27 @@ codes2 = [['o','10'], ['x','1']]
 
 case2 = str(1010101)
 
-decoded = ""
-def decode(case, codes, decoded):
-    decodes = []
+def dfs(case, codes, decodes, decoded) :
+    if case == "" :
+        if decoded != "":
+            tmp = "".join(decoded)
+            if tmp not in decodes :
+                decodes.append(tmp)
+        return decodes
     for code in codes :
-        if case[0:len(code[1])] == code[1] :
-            decoded = decoded + code[0]
-            print(decoded)
-            if len(case) == len(code[0]) :
-                decodes.append(decoded)
-            else:
-                tmps = decode(case[len(code[1]):], codes, decoded)
-            print(tmps)
+        if case[0] == "0":
+            decoded.append("")
+            decodes = dfs(case[1:], codes, decodes, decoded)
+        elif code[1] == case[0:len(code[1])]:
+            decoded.append(code[0])
+            decodes = dfs(case[len(code[1]):], codes, decodes, decoded)
+        else :
+            decoded.append("")
+        if len(decoded) != 0:
+            decoded.pop()
     return decodes
 
-print(decode(case1, codes1, decoded))
-print(decode(case2, codes2, decoded))
+ans = dfs(case1, codes1, [], [])
+print(ans)
+ans = dfs(case2, codes2, [], [])
+print(ans)
