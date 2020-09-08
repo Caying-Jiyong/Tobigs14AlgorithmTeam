@@ -12,3 +12,4 @@ for i in range(1, len(coin)-1) :
         sum += coin[i]
         count += 1
 print(count)
+###
