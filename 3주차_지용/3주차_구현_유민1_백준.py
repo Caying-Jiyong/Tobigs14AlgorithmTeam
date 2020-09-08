@@ -16,13 +16,16 @@ for n in range(N):
         grads[grad] += 1
 
 val = grads.values()
-if len(val) > 2 :
+if N > 2 :
     num_line = sum(val)
     A = num_line**3
     B = sum(i**2 for i in val) * num_line
     C = sum(i**3 for i in val)
-    ans = (A-3*B+2*C//6)
-if len(grads.keys()) < 3:
-    ans = 0
 
-print(ans%mod)
+    ans = (A-3*B+2*C)
+    if ans < 0 :
+        ans = 0
+    ans = ans//6
+    
+    
+print(int(ans%mod))
