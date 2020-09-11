@@ -1,7 +1,7 @@
-# ⚡ Tobig's 14th Algorithm Team
+# **⚡ Tobig's 14th Algorithm Team**
 
 빅데이터 연합동아리 투빅스 14기 알고리즘 팀
-
+<br><br>
 ## :round_pushpin: 팀원 (가나다순)
 - 이유민 (팀장)
 - 이지용
